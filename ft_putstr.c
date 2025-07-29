@@ -6,11 +6,12 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 17:20:22 by olmatske          #+#    #+#             */
-/*   Updated: 2025/07/28 17:40:00 by olmatske         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:09:40 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 
 int	ft_putstr(char *str)
 {
@@ -25,4 +26,10 @@ int	ft_putstr(char *str)
 		i++;
 	}
 	return (i);
+}
+int	ft_putchar(char	c)
+{
+	if ((write(1, &c, 1)) == -1)
+		return (-1);
+	return (1);
 }
