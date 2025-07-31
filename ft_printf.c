@@ -6,50 +6,77 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 17:51:52 by olmatske          #+#    #+#             */
-/*   Updated: 2025/07/29 23:44:07 by olmatske         ###   ########.fr       */
+/*   Updated: 2025/07/30 18:07:39 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdarg.h>
 
-static int	format_type(char c);
-static int	hexconvert(int n);
-static int	printit(va_list args, )
+static int	format_type(const char *format, int i, va_list args);
+static int	printit(const char *format, va_list args);
 
 int	ft_printf(const char *format, ...)
 {
+	int	count;
 	va_list	args;
+
 	va_start(args, format);
-	ft_printit(args, format);
-
-
+	count = printit(format, args);
+	printit(format, args);
+	va_end(args);
+	return (count);
 }
 
-static int	format_type(char c)
+static int	printit(const char *format, va_list args)
 {
-	if (c == "c")
+	int	i;
+	int	count;
+	int	flag;
+
+	i = 0;
+	count = 0;
+	flag = 0;
+	while (format[i] != '\0')
+	{
+		if (format[i] == '%')
+		{
+			flag = format_type(format, ++i, args);
+			if (flag == -1)
+				return (-1);
+			count += 2;
+		}
+		else
+		{
+			if (ft_putchar(format[i] == -1))
+				return (-1);
+			count++;
+		}
+		i++;
+	}
+	return (count);
+}
+
+static int	format_type(const char *format, int i, va_list args)
+{
+	if (format[i] == 'c')
 		return (va_arg(args, char));
-	if (c == "s")
+	else if (format[i] == 's')
 		return (va_arg(args, char *));
-	if (c == "p")
+	else if (format[i] == 'p')
 		return (va_arg(args, void *));
-	if (c == "d")
+	else if (format[i] == 'd')
 		return (va_arg(args, int));
-	if (c == "i")
+	else if (format[i] == 'i')
 		return (va_arg(args, int));
-	if (c == "u")
+	else if (format[i] == 'u')
 		return (va_arg(args, unsigned int));
-	if (c == "x")
+	else if (format[i] == 'x')
 		return (va_arg(args, char *));
-	if (c == "X")
+	else if (format[i] == 'X')
 		return (va_arg(args, char *));
-	if (c == "c")
+	else if (format[i] == '%')
 		return (ft_putchar('%'));
-}
-static int	printit(va_list args, const char *format)
-{
-
 }
 // printf does the basic function calling
 // printit does the writing up until it encounters the %,
