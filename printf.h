@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/28 17:20:22 by olmatske          #+#    #+#             */
-/*   Updated: 2025/08/01 21:11:55 by olmatske         ###   ########.fr       */
+/*   Created: 2025/08/01 21:07:48 by olmatske          #+#    #+#             */
+/*   Updated: 2025/08/01 21:12:22 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBFT_H
+# define LIBFT_H
 
-int	ft_putstr(char *str)
-{
-	int	i;
+# include <stdlib.h>
+# include <unistd.h>
+# include <stddef.h>
+#include <stdarg.h>
 
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == NULL)
-			return (ft_putstr("(null)"));
-		ft_putchar(str[i]);
-		i++;
-	}
-	return (i);
-}
-int	ft_putchar(char	c)
-{
-	if ((write(1, &c, 1)) == -1)
-		return (-1);
-	return (1);
-}
+int	ft_putchar(char c);
+int	putnbr(int n);
+int	ft_printf(const char *format, ...);
+int	ft_putstr(char *str);
+int	hexconvert(unsigned int n, char *hex);
+
+#endif

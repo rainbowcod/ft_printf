@@ -6,12 +6,11 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 17:51:52 by olmatske          #+#    #+#             */
-/*   Updated: 2025/07/30 18:07:39 by olmatske         ###   ########.fr       */
+/*   Updated: 2025/08/01 21:09:46 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdarg.h>
 
 static int	format_type(const char *format, int i, va_list args);
 static int	printit(const char *format, va_list args);
@@ -60,7 +59,7 @@ static int	printit(const char *format, va_list args)
 static int	format_type(const char *format, int i, va_list args)
 {
 	if (format[i] == 'c')
-		return (va_arg(args, char));
+		return (va_arg(args, char c));
 	else if (format[i] == 's')
 		return (va_arg(args, char *));
 	else if (format[i] == 'p')
@@ -72,11 +71,12 @@ static int	format_type(const char *format, int i, va_list args)
 	else if (format[i] == 'u')
 		return (va_arg(args, unsigned int));
 	else if (format[i] == 'x')
-		return (va_arg(args, char *));
+		return (hexconvert(va_arg(args, unsigned int), "012456789abcdef"));
 	else if (format[i] == 'X')
-		return (va_arg(args, char *));
+		return (hexconvert(va_arg(args, unsigned int), "012456789ABCDEF"));
 	else if (format[i] == '%')
 		return (ft_putchar('%'));
+	return (0);
 }
 // printf does the basic function calling
 // printit does the writing up until it encounters the %,

@@ -1,7 +1,7 @@
 NAME = libftprintf.a
 
-SRCS = 
-	
+SRCS = ft_printf.c ft_puthar.c ft_putnbr.c ft_putstr.c hexconvert.c
+
 LIBFT = ./libft/libft.a
 
 
