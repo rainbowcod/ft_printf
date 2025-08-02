@@ -6,14 +6,15 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 17:50:01 by olmatske          #+#    #+#             */
-/*   Updated: 2025/07/30 17:52:00 by olmatske         ###   ########.fr       */
+/*   Updated: 2025/08/02 12:18:21 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {
-	if (write(1, &c, 1) == 1)
+	if (write(1, &c, 1) == -1)
 		return (-1);
+	return (1);
 }

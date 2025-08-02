@@ -6,12 +6,11 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 17:53:09 by olmatske          #+#    #+#             */
-/*   Updated: 2025/08/01 21:12:28 by olmatske         ###   ########.fr       */
+/*   Updated: 2025/08/02 12:18:31 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdarg.h>
+#include "ft_printf.h"
 
 int	hexconvert(unsigned int n, char *hex)
 {

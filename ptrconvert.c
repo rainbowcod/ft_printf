@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ptrconvert.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/01 21:07:48 by olmatske          #+#    #+#             */
-/*   Updated: 2025/08/01 21:12:22 by olmatske         ###   ########.fr       */
+/*   Created: 2025/08/02 12:35:19 by olmatske          #+#    #+#             */
+/*   Updated: 2025/08/02 14:12:20 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_printf.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stddef.h>
-#include <stdarg.h>
+int	ptrconvert(void *ptr)
+{
+	unsigned long	res;
+	int				count;
 
-int	ft_putchar(char c);
-int	putnbr(int n);
-int	ft_printf(const char *format, ...);
-int	ft_putstr(char *str);
-int	hexconvert(unsigned int n, char *hex);
-
-#endif
+	res = (unsigned long)ptr;
+	count = 0;
+	if (res == 0)
+	{
+		if (ft_putstr(NULL_PTR) == -1)
+			return (-1);
+		return (ft_strlen(NULL_PTR));
+	}
+	if (ft_putstr("0x") == -1)
+		return (-1);
+	count += 2;
+	count = hexconvert(res, "0123456789abcdef");
+	return (count);
+}
