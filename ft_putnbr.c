@@ -6,7 +6,7 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 18:10:44 by olmatske          #+#    #+#             */
-/*   Updated: 2025/08/02 14:20:20 by olmatske         ###   ########.fr       */
+/*   Updated: 2025/08/02 22:50:11 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_putnbr(int n)
 	count = 0;
 	if (num < 0)
 	{
-		if (ft_putchar('-') == -1);
+		if (ft_putchar('-') == -1)
 			return (-1);
 		num = -num;
 	}
