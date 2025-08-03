@@ -15,7 +15,7 @@ RM = rm -f
 all: $(NAME)
 
 $(LIBFT) :
-	make -C ./libft
+	make -C ./Libft
 
 $(NAME): $(OBJCS) $(LIBFT)
 	cp $(LIBFT) $(NAME)
