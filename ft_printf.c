@@ -6,7 +6,7 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 17:51:52 by olmatske          #+#    #+#             */
-/*   Updated: 2025/08/02 14:08:51 by olmatske         ###   ########.fr       */
+/*   Updated: 2025/08/03 16:11:27 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static int	format_type(const char *format, int i, va_list args)
 	else if (format[i] == 'i')
 		return (ft_putnbr(va_arg(args, int)));
 	else if (format[i] == 'u')
-		return (ft_putnbr(va_arg(args, unsigned int)));
+		return (ft_unsignedputnbr(va_arg(args, unsigned int)));
 	else if (format[i] == 'x')
 		return (hexconvert(va_arg(args, unsigned int), "0123456789abcdef"));
 	else if (format[i] == 'X')

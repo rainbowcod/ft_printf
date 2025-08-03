@@ -6,7 +6,7 @@
 /*   By: olmatske <olmatske@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 21:07:48 by olmatske          #+#    #+#             */
-/*   Updated: 2025/08/02 13:45:28 by olmatske         ###   ########.fr       */
+/*   Updated: 2025/08/03 16:11:12 by olmatske         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ int	ft_printf(const char *format, ...);
 int	ft_putstr(char *str);
 int	hexconvert(unsigned int n, char *hex);
 int	ptrconvert(void *ptr);
+int	ft_unsignedputnbr(unsigned int n);
 
 #endif
