@@ -3,8 +3,8 @@ NAME = libftprintf.a
 SRCS = ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c hexconvert.c ptrconvert.c \
 		ft_unsignedputnbr.c
 
+LIBFT_DIR = ./Libft
 LIBFT = ./Libft/libft.a
-
 
 OBJCS = $(SRCS:.c=.o)
 
@@ -14,18 +14,20 @@ RM = rm -f
 
 all: $(NAME)
 
+$(LIBFT) :
+	make -C ./libft
+
 $(NAME): $(OBJCS) $(LIBFT)
 	cp $(LIBFT) $(NAME)
 	ar rcs $(NAME) $(OBJCS)
 
-$(LIBFT) :
-	make -C ./libft
-
 clean:
 	$(RM) $(OBJCS)
+	make -C $(LIBFT_DIR) clean
 
 fclean: clean
 	$(RM) $(NAME)
+	make -C $(LIBFT_DIR) fclean
 
 re:
 	$(MAKE) fclean
@@ -35,5 +37,3 @@ party:
 	curl parrot.live
 
 .PHONY: all clean fclean re party
-
-# Linux and Mac
